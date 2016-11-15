@@ -52,10 +52,34 @@ If it does not appear in the list, you must enable debuging options.
 **In your phone**
   3. Allow for remote debugging if not done yet.
 
+## Inspect application with UIAutomator
+
+This tool works analogously to a web inspector; it exposes application UI
+composition as XPath value for each element.
+
+```bash
+(env) ~/appium-movile$ $ANDROID_HOME/tools/uiautomatorviewer
+```
+
 ## Test development flow
 
-1. Use remote debugging to determine the test path to use (CSS selectors,
-   classes, names or XPath).
-1. Write tests simulating the user's discovery path on the site.
+1. Use remote debugging for web pages or UI inspector for native apps to
+   determine the test path to use.
+1. Write tests simulating the user's discovery path on the site or application.
 1. Validate progress with attached device.
 1. Repeat.
+
+### Problems
+
+* Android's fragmentation reduces standarization on native applications, so
+  simple tasks as reading SMS text content from UI becomes hard. Custom
+  application (or opensource alternatives) as known bindings is a must.
+* Very few documentation, or distributed along the official pages for each tool
+  in the Appium's chain of responsability.
+* Requires existent devices to be attached to computer running tests.
+
+## Visible benefits
+
+1. Complete full integration tests.
+1. Repeatable. Documentable.
+1. Available on multiple programming languajes.

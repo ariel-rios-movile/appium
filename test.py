@@ -9,9 +9,21 @@ desired_caps['browserName'] = 'Chrome'
 desired_caps['recreateChromeDriverSessions'] = True
 
 driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_caps)
+
 driver.get('http://movilesc.com/marvel/')
+
 driver.find_element_by_css_selector('a.arg').click()
+
 driver.find_element_by_name('ddd').send_keys('11')
+
 driver.find_element_by_name('phone').send_keys('30473326')
-driver.find_element_by_xpath("//select[@name='carrierId']/option[@value='12']").click()
+
+driver.find_element_by_xpath(
+    "//select[@name='carrierId']/option[@value='12']"
+).click()
+
 driver.find_element_by_css_selector('input.btnWidget').click()
+
+driver.get_screenshot_as_file('/tmp/ariel.png')
+
+driver.quit()
